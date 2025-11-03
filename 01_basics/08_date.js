@@ -29,9 +29,19 @@ console.log(newDate.getDay()); // from 1 to 7 (Wednesday)
 
 console.log(`${newDate.getDay()} and the time`);
 
-let dateFormat =  newDate.toLocaleDateString('default', {
+let dateFormat = newDate.toLocaleDateString('default', {
     weekdays: 'long',
-    dateStyle: "full"
+    dateStyle: "full",
+
 })
+let timeFormat = newDate.toLocaleTimeString('default', {
+  hour: "2-digit",
+
+})
+let day = newDate.getDay();
+
+let daylist = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 console.log(dateFormat);
+console.log(timeFormat);
+console.log(daylist[day])
