@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Learning</title>
+    <style>
+      .bg {
+        background-color: #212121;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="bg">
+    <div class="container">
+      <h1 id="title" class="heading">
+        Hello World! <span style="display: none">Extra Text Added</span>
+      </h1>
+      <p class="message">Greeting</p>
+      <input type="password" />
+      <ul class="list">
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    const title = document.getElementById("title");
+
+    //document.getElementById("title").getAttribute("id"); // to get the attribute value
+
+    //document.getElementById("title").setAttribute("class", 'newClass'); // to change the attribute value
+
+    console.log(title.innerHTML); // here select the title html code
+    console.log(title.innerText); // here select the text inside the title. Don't show hidden text
+    console.log(title.textContent); // here select the text and also hidden text
+
+    //const headingClass =  document.getElementsByClassName('heading') // output: give an HTMLCollection[] of heading
+
+    const inputPass = document.querySelector("input[type=password]");
+    // console.log(inputPass)
+
+    const ul = document.querySelector("ul");
+
+    const ulList = ul.querySelector("li"); //here only select the first li in the ul
+
+    ulList.style.background = "green";
+    ulList.style.padding = "5px";
+    ulList.style.borderRadius = "10px";
+    ulList.innerHTML = "<span>Hello</span>";
+
+    // NOTE:  Node List is not a pure Array. Therefore, some arrays function won't applicable on it (ex. .map)
+    const allList = document.querySelectorAll("li"); //get the node list of all li present in docmuent
+
+    //allList.style.color = "red" // by this it cannot apply the color on all the li
+
+    allList[0].style.color = "red";
+
+    // for each works with node list
+    allList.forEach((l) => {
+      l.style.color = "yellow";
+    });
+
+    // Convert Node list to array
+    const ulAllList = document.getElementsByClassName("list-item"); // HTMLCollection
+
+    const listArray = Array.from(ulAllList); // Convert HTMLCollection to Array for using array methods
+
+    listArray.map((item) => {
+      console.log(item.innerText);
+      item.style.color = "aqua";
+    });
+
+  </script>
+</html>

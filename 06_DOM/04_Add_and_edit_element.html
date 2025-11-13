@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="background-color: #212121; color: #fff">
+    <ul class="allList">
+      <li>javascript</li>
+    </ul>
+  </body>
+  <script>
+    const list = document.querySelector(".allList");
+    console.log(list);
+
+    // Adding more li by using function
+    function addList(addLang) {
+      const createList = document.createElement("li");
+      createList.innerHTML = `${addLang}`; // when using innerHTML, all element traverse the tree
+      list.appendChild(createList);
+    }
+    addList("python");
+    addList("C++");
+
+    // Optimize Way: Adding li
+    function addList(addLang) {
+      const createList = document.createElement("li");
+      createList.appendChild(document.createTextNode(addLang));
+      list.appendChild(createList);
+    }
+    addList("goLang");
+
+    //  Edit Lists
+    const secLi = document.querySelector("li:nth-child(2)");
+    const newli = document.createElement("li");
+    newli.appendChild(document.createTextNode("Ruby"));
+    secLi.replaceWith(newli);
+
+    // edit - with outerHTML
+    const firstElement = document.querySelector("li:first-child");
+    firstElement.outerHTML = "<li>Typescript</li>"
+
+    // Remove
+    const lastElement = document.querySelector("li:last-child");
+    lastElement.remove();
+  </script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM - Add Element through js</title>
+  </head>
+  <body style="background-color: #212121"></body>
+  <script>
+    const div = document.createElement("div");
+    console.log(div);
+    div.className = "main";
+    div.id = "section";
+
+    div.setAttribute("title", "Greetings");
+    div.style.backgroundColor = "green";
+    div.style.color = "black";
+    div.style.padding = "12px";
+
+    // text to div: Direct way
+    // div.innerHTML = "Hello World";
+
+    // text to div: Optimize way
+    const addText = document.createTextNode("Adding text through text node.");
+    div.appendChild(addText);
+
+    document.body.appendChild(div);
+  </script>
+</html>
