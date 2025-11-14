@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js Events</title>
+    <style>
+      :root {
+        background-color: #414141;
+        color: white;
+        font-family: sans-serif;
+      }
+
+      h2 {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(0, 55, 207);
+        background: linear-gradient(
+          to right,
+          rgb(34, 193, 195),
+          rgb(253, 187, 45)
+        );
+        border-radius: 6px;
+      }
+      /* .Char_icons {
+
+      } */
+      .BLfandomWiki > a {
+        text-decoration: none;
+        color: white;
+      }
+
+      ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+
+      .BLfandomWiki {
+        background-color: rgb(0, 150, 255);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-weight: bold;
+      }
+
+      .BLfandomWiki:hover {
+        background-color: rgb(0, 120, 200);
+        /* Darker bluish shade on hover */
+      }
+
+      img {
+        width: 150px;
+        height: 200px;
+      }
+
+      #Isagi {
+        border: solid rgb(0, 0, 255);
+        color: rgb(142, 238, 142);
+      }
+
+      #Nagi {
+        border: solid white;
+      }
+
+      #Bachira {
+        border: solid yellow;
+        color: yellow;
+      }
+
+      #Chigiri {
+        border: solid rgb(252, 0, 105);
+        color: rgb(255, 0, 43);
+      }
+
+      #Reo {
+        border: solid rgb(162, 0, 255);
+        color: rgb(162, 0, 255);
+      }
+
+      span > a {
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        text-decoration: none;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>BLUELOCK - Some Characters</h2>
+    <div class="main">
+      <p class="BLfandomWiki">
+        <span id="BLWiki"
+          ><a id="blLink" href="https://bluelock.fandom.com/wiki/Blue_Lock_Wiki"
+            >BLUELOCK Wiki</a
+          ></span
+        >
+      </p>
+      <ul class="Char_icons">
+        <!-- **Onclick Approach in html (Feasible - not recommended)** -->
+        <!-- <li ><img id="Isagi" src="img/BL_Icon_Yoichi_Isagi.png" alt="Yoichi_Isagi"onclick="alert('Yoichi_Isagi_Icon')">Yoichi Isagi</li> -->
+
+        <li>
+          <img
+            id="Isagi"
+            src="img/BL_Icon_Yoichi_Isagi.png"
+            alt="Yoichi_Isagi"
+          />⚽ Yoichi Isagi
+        </li>
+        <li>
+          <img
+            id="Nagi"
+            src="img/BL_Icon_Seishiro_Nagi.png"
+            alt="Seishiro_Nagi"
+          />⚽ Seishiro Nagi
+        </li>
+        <li>
+          <img
+            id="Bachira"
+            src="img/BL_Icon_Meguru_Bachira.png"
+            alt="Meguru_Bachira"
+          />⚽ Meguru Bachira
+        </li>
+        <li>
+          <img
+            id="Chigiri"
+            src="img/BL_Icon_Hyoma_Chigiri.png"
+            alt="Hyoma_Chigiri"
+          />⚽ Hyoma Chigiri
+        </li>
+        <li>
+          <img id="Reo" src="img/BL_Icon_Reo_Mikage.png" alt="Reo_Mikage" />⚽
+          Reo Mikage
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    /*
+
+    // ***Not RECOMMENDED***
+    // document.querySelector('#Nagi').onclick = function (){
+    //   console.log("Nagi Clicked");
+    // }
+
+    document.querySelector("#Isagi").addEventListener(
+      "click",
+      function (e) {
+        console.log(e);
+        // console.log("Isagi Clicked");
+      },
+      false
+    ); // false is use by default in addEventListener()
+
+    // **Old Method**
+    //attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // More Pointer Events for addEventListener
+    // target,toElement, srcElement, currentTarget,
+    // altKey, ctrlKey, shiftKey, keyCode
+
+    // Propagation Issue Solve
+    // Parent
+    document.querySelector(".Char_icons").addEventListener(
+      "click",
+      function () {
+        console.log("Character Icon Clicked - Event Delegation");
+      },
+      true //'false' for bubbling (bottom to top) & 'true' for capturing (first parent then child)
+    );
+    // Child
+    document.querySelector("#Chigiri").addEventListener(
+      "click",
+      function (e) {
+        e.stopPropagation(); // to stop propagation. Now only the Icon (child) clicked not the list(parent)
+        console.log("Chigiri Clicked - Event Bubbling");
+      },
+      true
+    );
+
+    // Prevent Default ex:
+    document.querySelector("#blLink").addEventListener(
+      "click",
+      function (e) {
+        e.preventDefault(); //block the default behavior of button (from redirect to link)
+        console.log("BlueLock Link Clicked");
+      },
+      false
+    );
+
+
+    */
+    // removing images li from ul
+
+    document
+      .querySelector(".Char_icons")
+      .addEventListener("click", function (e) {
+        console.log(e);
+        console.log(e.target);
+        console.log(e.target.parentNode);
+        console.log(e.target.tagName); // ex: IMG, LI, etc
+
+        if (e.target.tagName === "IMG") {
+          console.log(e.target.id)
+          let removeIt = e.target.parentNode; //<ul>
+          removeIt.remove();
+        }
+
+        // removeIt.parentNode.removeChild(removeIt)  // Other Method to remove
+      });
+  </script>
+</html>
