@@ -16,18 +16,29 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        main{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
         .form {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
             margin-bottom: 20px;
-        }
-        .form>label{
-            font-size: larger;
+            background-color: rgb(63, 61, 61);
+            padding: 20px;
+            border-radius: 9px;
+            border: 2px solid white;
+            width: 300px;
+          }
+        label{
+            font-size: large;
             font-weight: 600;
-            color: yellow;
+            color: rgb(236, 236, 129);
         }
         #guessField {
             width: 50px;
@@ -36,7 +47,15 @@
         }
         #sbt {
             padding: 5px 10px;
-            font-size: 16px;
+            font-size: 17px;
+            cursor: pointer;
+            border: 2px solid white;
+            color: aliceblue;
+            background-color: #212121;
+            border-radius: 6px;      
+        }
+        #sbt:hover{
+          background-color: #484747;
         }
         .resultParas {
             text-align: center;
@@ -44,6 +63,19 @@
         }
         .lowOrHi {
             font-weight: bold;
+        }
+        .gameOver{
+            background-color: red;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        #newGame{
+            background-color: rgb(54, 132, 137);
+            border: 2px solid white;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
         }
     </style>
   </head>
@@ -55,13 +87,15 @@
     </header>
     <main>
       <form class="form">
-        <label for="guessField" id="guessLabel">Guess a number</label>
+        <div>
+          <label for="guessFiield" id="guessLabel">Guess a number: </label>
         <input type="text" name="guessField" id="guessField" />
+        </div>
 
         <input type="submit" id="sbt" value="Submit Guess" />
       </form>
         <div class="resultParas">
-            <p>Previous guesses: <span class="guesses"></span></p>
+            <p>Previous Guesses: <span class="guesses"></span></p>
             <p>Guesses Remianing: <span class="lastResult">10</span></p>
             <p class="lowOrHi"></p>
     </main>
