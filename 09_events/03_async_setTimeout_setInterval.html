@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async - setTimeout</title>
+  </head>
+  <body>
+    <h1 class="heading">Hello World</h1>
+    <button id="stopBtn">Stop</button>
+  </body>
+  <script>
+    const message = () => {
+      console.log("I run after 2 sec");
+    };
+
+    const textChange = () => {
+      const heading = document.querySelector(".heading");
+      heading.innerHTML = `Changed Heading`;
+    };
+
+    const changer = setTimeout(textChange, 2000); // only give reference of the function
+
+
+    // Clean Timeout
+    const btn = document.querySelector('#stopBtn')
+
+    btn.addEventListener('click', ()=>{
+        clearTimeout(changer)
+        console.log("timeout stop")
+    })
+  </script>
+</html>
