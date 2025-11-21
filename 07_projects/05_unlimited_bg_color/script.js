@@ -12,17 +12,20 @@ let randomColor = function () {
 }
 console.log(randomColor());
 
+// Create variable null to hold the setInterval() funtion to clearInterval
 let intervalId = null;
 
+// When Start Click startColorChanger execute
 const startColorChanger = () => {
 
     let changeColor = () => {
         document.body.style.backgroundColor = randomColor();
     }
-
+   
     if (intervalId === null) {
-        intervalId = setInterval(changeColor, 1000);
+        intervalId = setInterval(changeColor, 1000); //change color reference
     }
+
 }
 
 const stopColorChanger = () => {
