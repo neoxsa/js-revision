@@ -38,3 +38,42 @@ function counter(inputStr) {
 counter("Hello World Again");
 counter("Neoxsa");
 
+
+// Method 2: Regular Expression (Regex) syntax - code between two forward slashes /code/ , for loop
+
+function calculateM2(inputStr) {
+    inputStr = inputStr.toLowerCase();
+    //inputStr = inputStr.replace(' ', '') // it only remove the first space in the string, instead we can use replaceAll or Regex.
+
+    inputStr = inputStr.replace(/ /g, "") // Regex check the all the spaces globally in the string and replace method replace them with empty string
+
+    console.log(inputStr);
+
+    const vowels = "aeiou";
+    // const consonants = "bcdfghjklmnpqrstvwxyz";
+
+    let vowelsCount = 0;
+    let consonantsCount = 0;
+
+    for (let i = 0; i < inputStr.length; i++) {
+
+        if (vowels.includes(inputStr[i])) {
+            vowelsCount++;
+        }
+        // else if (consonants.includes(inputStr[i])) { consonantsCount++ }
+
+        else if (/^[a-z]$/.test(inputStr[i])) {  // using Regex. Now no need for declaring contants value for comparing, basically it automatic set them according to its expression.
+            consonantsCount++;
+        }
+        else {
+            console.log(`${inputStr[i]} is neither vowel or consonant`)
+        }
+    }
+
+    return {
+        vowel: vowelsCount,
+        consonants: consonantsCount
+    }
+}
+
+console.log(calculateM2("Google India Branch"))
