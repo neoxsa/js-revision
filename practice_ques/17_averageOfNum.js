@@ -11,8 +11,8 @@
 // My Approach: 
 
 function calculateAverage(inputArr) {
-    
-    if (Array.isArray(inputArr)) {
+
+    if (!Array.isArray(inputArr)) {
         throw new Error("Input should be an Array");
     } else if (inputArr.length === 0) {
         throw new Error("Array cannot be empty.")
