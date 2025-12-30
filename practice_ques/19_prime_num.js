@@ -9,8 +9,8 @@
 //My Approach: for loop, push method, length, comparison
 function isPrime(inputNum) {
     //checks
-    if (isNaN(inputNum)) {
-        throw new Error("Input should be a Positive Number.")
+    if (typeof inputNum !== "number" || Number.isNaN(inputNum)) {
+        throw new Error("Input must be a number.");
     } else if (!Number.isInteger(inputNum)) {
         throw new Error("Input should not be in decimal.")
     }

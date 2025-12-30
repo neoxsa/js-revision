@@ -16,8 +16,8 @@ function calculateFactors(inputNum) {
 
     if (!inputNum) {
         throw new Error("Input cannot be empty.")
-    } else if (isNaN(inputNum)) {
-        throw new Error("Input value must be a positive number.")
+    } else if (typeof inputNum !== "number" || Number.isNaN(inputNum)) {
+        throw new Error("Input must be a number.");
     } else if (!Number.isInteger(inputNum)) {
         throw new Error("Positive number should not be in decimal.")
     }

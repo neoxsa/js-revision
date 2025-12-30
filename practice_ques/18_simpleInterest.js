@@ -14,8 +14,8 @@
 
 // My Approach: 
 function calculateSI(principalAmount, interestRateYearly, durationInYearly) {
-    if (isNaN(principalAmount) || isNaN(interestRateYearly) || isNaN(durationInYearly)) {
-        throw new Error("All input value should be in Positive Number.")
+    if (typeof inputNum !== "number" || Number.isNaN(inputNum)) {
+        throw new Error("Input must be a number.");
     } else if (!Number.isInteger(durationInYearly)) {
         throw new Error("Time Duration should not be in decimal.")
     }
@@ -27,6 +27,6 @@ function calculateSI(principalAmount, interestRateYearly, durationInYearly) {
 
 }
 
-console.log("Simple Interest of (PA = 1000, IR = 5%, TD = 1year) is: ",calculateSI(1000, 5, 1));
-console.log("Simple Interest of (PA = 20000, IR = 10%, TD = 5year) is: ",calculateSI(20000, 10, 5));
-console.log("Simple Interest of (PA = 100000.99, IR = 8.755%, TD = 5year) is: ",calculateSI(100000.99, 8.755, 5));
+console.log("Simple Interest of (PA = 1000, IR = 5%, TD = 1year) is: ", calculateSI(1000, 5, 1));
+console.log("Simple Interest of (PA = 20000, IR = 10%, TD = 5year) is: ", calculateSI(20000, 10, 5));
+console.log("Simple Interest of (PA = 100000.99, IR = 8.755%, TD = 5year) is: ", calculateSI(100000.99, 8.755, 5));
