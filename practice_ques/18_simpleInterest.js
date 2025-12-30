@@ -22,9 +22,11 @@ function calculateSI(principalAmount, interestRateYearly, durationInYearly) {
 
     let simpleInterest = (principalAmount * interestRateYearly * durationInYearly) / 100;
 
-    return simpleInterest;
+
+    return simpleInterest.toFixed(2);
 
 }
 
 console.log("Simple Interest of (PA = 1000, IR = 5%, TD = 1year) is: ",calculateSI(1000, 5, 1));
 console.log("Simple Interest of (PA = 20000, IR = 10%, TD = 5year) is: ",calculateSI(20000, 10, 5));
+console.log("Simple Interest of (PA = 100000.99, IR = 8.755%, TD = 5year) is: ",calculateSI(100000.99, 8.755, 5));
