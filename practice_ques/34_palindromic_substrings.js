@@ -47,7 +47,9 @@ function palindromicSubstrings(inputStr) {
 
     }
 
-    return result;
+    const removeDuplicate = [...new Set(result.filter((item, index) => result.indexOf(item) === index))];
+
+    return removeDuplicate;
 };
 
 console.log("palindromic of 'radar' :", palindromicSubstrings("radar"));
